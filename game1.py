@@ -27,13 +27,13 @@ while True:
 #sets the score needed to win the game
 #makes a list-item for every player 
 max_score = 50
-player_scores = [0 for _ in range(players)]
+player_scores = [0 for _ in range(players)] #creates a 0 for every player in the list, "_" is used because the variable does not matter
 
 #sets the game to stop when a score equal to or higher then 50 is achieved
 while max(player_scores) < max_score:
-
     for player_idx in range(players):
-        print("\nPlayer", player_idx + 1, "turn has just started!\n")
+        print("\nPlayer number", player_idx + 1, "turn has just started!")
+        print("Your total score is:", player_scores[player_idx], "\n")
         current_score = 0
     
         while True:
@@ -54,3 +54,8 @@ while max(player_scores) < max_score:
 
         player_scores[player_idx] += current_score
         print("Your total score is:", player_scores[player_idx])
+
+max_score = max(player_scores)
+winning_idx = player_scores.index(max_score)
+print("Player number", winning_idx + 1, 
+    "is the winner with a score of:", max_score)
